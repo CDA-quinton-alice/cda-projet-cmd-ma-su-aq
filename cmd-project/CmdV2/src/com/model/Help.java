@@ -1,21 +1,33 @@
 package com.model;
 
+import java.util.ArrayList;
+
 public class Help extends Command {
 
-	
-	
 	public Help() {
 		super("help");
 	}
 
 	@Override
-	public void execute() {
-		System.out.println("Bonjour ça compile ?");
+	public boolean execute() {
+		System.out.println("Bonjour sur la console cda");
+		return true;
 	}
 
 	@Override
+	public boolean execute(ArrayList<String> args) {
+		System.out.println("Bonjour sur la console cda avec les arguments : ");
+		for (String string : args) {
+			System.out.print(string+" ");
+		}
+		return true;
+	}	
+	
+	
+	@Override
 	public void describe() {
-		System.out.println("Je suis une commande help");
+		System.out.println("Je suis une commande Help");
 	}
+
 
 }

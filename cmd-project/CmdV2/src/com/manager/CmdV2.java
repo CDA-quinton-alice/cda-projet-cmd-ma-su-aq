@@ -3,30 +3,57 @@ package com.manager;
 import java.util.ArrayList;
 
 import com.model.Command;
+import com.model.Exit;
 import com.model.Help;
+import com.model.Pwd;
 
 public class CmdV2 {
-	private ArrayList<Command> vCommands ;
+	private static String pwd;
+	private ArrayList<Command> vCommands;
 
 	public CmdV2() {
+		// a remplacer par un ajout modulaire en fonction des classes présente
+		pwd = System.getProperty("user.dir");
 		vCommands = new ArrayList<>();
 		vCommands.add(new Help());
+		vCommands.add(new Exit());
+		vCommands.add(new Pwd());
 	}
 
+	// GETTER
+	public ArrayList<Command> getvCommands() {
+		return vCommands;
+	}
+
+	public static String getPwd() {
+		return pwd;
+	}
+
+	// SETTER
+	public static void setPwd(String pwd) {
+		CmdV2.pwd = pwd;
+	}
+
+	// Execution avec arguments
+	// A faire, gérer les cas où la commande n'existe pas
 	public boolean execute(String pCommande, ArrayList<String> pListeArgs) {
-		return false;
-	}
-
-	public boolean execute(String pCommande) { // user tape help
 		for (Command command : vCommands) {
 			if (command.getvNomCommand().equalsIgnoreCase(pCommande)) {
-				command.execute();
+				return command.execute(pListeArgs);
 			}
 		}
 		return true;
 	}
 
-	public ArrayList<Command> getvCommands() {
-		return vCommands;
+	// Execution sans argument
+	// A faire, gérer les cas où la commande n'existe pas
+	public boolean execute(String pCommande) {
+		// On parcours la liste de toutes les commandes disponibles !
+		for (Command command : vCommands) {
+			if (command.getvNomCommand().equalsIgnoreCase(pCommande)) {
+				return command.execute();
+			}
+		}
+		return true;
 	}
 }

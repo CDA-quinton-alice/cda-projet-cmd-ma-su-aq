@@ -1,5 +1,11 @@
 Listes des commandes du mini projet:
 
+CmdV2:
+	récupérer la liste des commandes de façon dynamique et modulaire via le système de fichier et stocker toutes les classes qui héritent
+	de Command
+	
+	Gérer les cas avec trop d'espace, et autre possible plantage.
+
 help : 
 	afficher une description pour chaque commande
 
@@ -40,6 +46,7 @@ dirng:
 cd:
 	se déplacer dans un répertoire qui existe dans le dossier en cours
 	dossier en cour par défaut : c:\
+	
 pwd:
 	Affiche le chemin absolue du répertoire courant
 	
