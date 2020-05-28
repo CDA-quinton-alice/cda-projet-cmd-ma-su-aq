@@ -1,0 +1,51 @@
+Listes des commandes du mini projet:
+
+help : 
+	afficher une description pour chaque commande
+river:
+	prend 2 paramètres en entrée et  
+    affiche la première intersection des rivières obtenues pour ces paramètres.
+isprime:
+	prend en paramètre un entier et affiche yes si ce paramètre est un nombre premier no sinon
+history:
+	le programme affiche la liste des 10 dernières commandes
+	Cette commande affiche ,en plus de la commande, les paramètres passés à la commande 
+	 et la date de l’exécution de la commande avec ce format 11:40:22 03/10/2018.
+
+histclear:
+	vide/purge l'historique des commandes , et n'affiche rien
+quit:
+	programme s’arrête
+dir:
+	qui affiche le contenu du répertoire courant 
+	un élément par ligne précédé par <DIR> si l'élément est un répertoire  
+    et de plusieurs espaces si c'est un fichier.
+dirng:
+	commande dir nouvelle génération, qui m'affiche le contenu
+    du répertoire  en cours,exactement comme la commande dir, mais en plus m'affiche le nombre de
+    répertoires et le nombre de fichier.
+
+cd:
+	se déplacer dans un répertoire qui existe dans le dossier en cours
+	dossier en cour par défaut : c:\
+pwd:
+	Affiche le chemin absolue du répertoire courant
+	
+find:
+	qui fonctionne de façon récursive 
+    et qui a 2 options -starts -ends
+	
+cat:
+	prend en paramètre le nom d'un fichier dans le répertoire en cours et afficher son contenu à la console
+	
+copy:
+	copie un fichier dans un autre
+	
+CRF:
+	prend un paramètre et crée un fichier avec ce nom dans le répertoire en cours 
+CRD:
+	prend un paramètre et crée un répertoire avec ce nom dans le répertoire en cours
+	
+	
+les commandes help, history, histclear, pwd, dir ne sont pas sauvegardées dans l'historique.
+d'autres modifications, nouvelle commande peuvent être ajoutées à tout moment !
