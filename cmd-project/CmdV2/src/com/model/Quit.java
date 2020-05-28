@@ -26,7 +26,5 @@ public class Quit extends Command {
 	System.out.println("Je suis la commande Quit, je termine le programe");
 		
 	}
-
-	
 	
 }

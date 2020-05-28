@@ -2,9 +2,12 @@ package com.manager;
 
 import java.util.ArrayList;
 
+import com.model.Cat;
 import com.model.Command;
+import com.model.Dir;
 import com.model.Exit;
 import com.model.Help;
+import com.model.IsPrime;
 import com.model.Pwd;
 import com.model.Quit;
 
@@ -20,6 +23,9 @@ public class CmdV2 {
 		vCommands.add(new Exit());
 		vCommands.add(new Pwd());
 		vCommands.add(new Quit());
+		vCommands.add(new Cat());
+		vCommands.add(new IsPrime());
+		vCommands.add(new Dir());
 	}
 
 	// GETTER
