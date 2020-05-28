@@ -2,24 +2,36 @@ Listes des commandes du mini projet:
 
 help : 
 	afficher une description pour chaque commande
-river:
+
+river: 
 	prend 2 paramètres en entrée et  
     affiche la première intersection des rivières obtenues pour ces paramètres.
+
+
 isprime:
 	prend en paramètre un entier et affiche yes si ce paramètre est un nombre premier no sinon
+
+
 history:
 	le programme affiche la liste des 10 dernières commandes
 	Cette commande affiche ,en plus de la commande, les paramètres passés à la commande 
 	 et la date de l’exécution de la commande avec ce format 11:40:22 03/10/2018.
 
+
 histclear:
 	vide/purge l'historique des commandes , et n'affiche rien
+
+
 quit:
 	programme s’arrête
+
+
 dir:
 	qui affiche le contenu du répertoire courant 
 	un élément par ligne précédé par <DIR> si l'élément est un répertoire  
     et de plusieurs espaces si c'est un fichier.
+
+
 dirng:
 	commande dir nouvelle génération, qui m'affiche le contenu
     du répertoire  en cours,exactement comme la commande dir, mais en plus m'affiche le nombre de
