@@ -24,8 +24,8 @@ public class Program {
 			
 			
 			//découpage de la saisie de l'utilisateur
-			//Pas la meilleur solution, possible amélioration !
-			//les commandes doivent fonctionner quelque soit le nombre d'espace
+			//Pas la meilleure solution, possible amélioration !
+			//les commandes doivent fonctionner quelque soit le nombre d'espaces
 			
 			String[] vCommandArgument = vStr.split("\\ ");
 			String vCom = vCommandArgument[0];
