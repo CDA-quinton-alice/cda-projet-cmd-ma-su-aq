@@ -6,6 +6,7 @@ import com.model.Command;
 import com.model.Exit;
 import com.model.Help;
 import com.model.Pwd;
+import com.model.Quit;
 
 public class CmdV2 {
 	private static String pwd;
@@ -18,6 +19,7 @@ public class CmdV2 {
 		vCommands.add(new Help());
 		vCommands.add(new Exit());
 		vCommands.add(new Pwd());
+		vCommands.add(new Quit());
 	}
 
 	// GETTER
