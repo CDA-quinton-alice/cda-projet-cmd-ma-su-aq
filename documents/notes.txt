@@ -1,0 +1,39 @@
+découper chaque commande dans un fichier java c'est ce qu'il y a de plus simple pour que ce soit modulaire 
+
+pas forcément de l'héritage 
+
+on peut faire une espèce de classe abstraite commande qui s'occupera de la gestion des commandes (classe abstraite de type commande auquel le cmd manager va s'occuper)
+pas de type de comportement différent, pas d'interface, pas d'héritage 
+uniquement un type global pour les commandes 
+
+le tout sera géré dans une classe principale qui contiendra le main (donc dans le cmd manager) 
+c'est le cmd manager qui s'occupera d'aller chercher dans les différentes classes 
+
+c'est lui qui va lister 
+dès qu'on entre dans le programme le cmd manager va lister toutes les commandes disponibles 
+le menu est affiché que si on tape help 
+
+renommer cmd manager en nom de notre programme 
+
+dès qu'on entre dedans il va chercher les fichiers sources (tous les fichiers qui héritent de commande) 
+on va parcourir tous les fichiers java et dès qu'il y en a un qui hérite de commande on le rajoute dans la liste de commande 
+et dès qu'on entre help on placera en paramètre la liste de commande help s'occupera d'afficher une méthode abstraite de commande en mode 
+décris-toi "un genre de tostring" quoi 
+si on tape help espace et le nom d'une commande qui existe c'est le commande manager qui s'occupera de récupérer les arguments 
+faudra juste découper ce que l'utilisateur entre via des splits 
+split : méthode qui permet de découper une chaine de caractère en fonction d'un caractère particulier (il va découper la chaîne de caractère en un tableau qui s'occupera d'isoler le caractère en question) 
+--> héritage de commande 
+on imposera à toutes les nouvelles commandes d'hériter de commandes 
+descriptions, exécutions, etc 
+
+
+cet aprem : 
+cmd manager 
+
+programme principal qui appelle le cmd manager 
+puis boucle de gestion avec un scanner 
+mettre en forme ce qu'on voit 
+
+le cmd manager 
+
+classe abstraite commande 
