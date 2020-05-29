@@ -42,8 +42,7 @@ public class Crf extends Command {
 
 	@Override
 	public void describe() {
-		// TODO Auto-generated method stub
-
+		System.out.println("crf [param] : Crée le fichier placé en paramètre.");
 	}
 
 }
