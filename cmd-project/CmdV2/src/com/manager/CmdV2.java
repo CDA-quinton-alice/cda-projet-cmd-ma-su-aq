@@ -3,8 +3,9 @@ package com.manager;
 import java.util.ArrayList;
 
 import com.model.Cat;
+import com.model.Cd;
 import com.model.Command;
-import com.model.Crf;
+//import com.model.Crf;
 import com.model.Dir;
 import com.model.Exit;
 import com.model.Help;
@@ -27,7 +28,7 @@ public class CmdV2 {
 		vCommands.add(new Cat());
 		vCommands.add(new IsPrime());
 		vCommands.add(new Dir());
-		vCommands.add(new Crf());
+		//vCommands.add(new Crf());
 		vCommands.add(new Cd());
 	}
 
