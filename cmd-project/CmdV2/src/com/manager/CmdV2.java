@@ -26,8 +26,8 @@ public class CmdV2 {
 				String classe = s2[i];
 				Class<?> cls = Class.forName("com.model."+classe);
 				if(Command.class.isAssignableFrom(cls)&&!(cls.getName().toString().equals("com.model.Command"))) {
-						Command c = (Command) cls.newInstance();
 					try {
+						Command c = (Command) cls.newInstance();
 						vCommands.add(c);
 					} catch (InstantiationException | IllegalAccessException e) {
 						e.printStackTrace();
