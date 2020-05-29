@@ -34,21 +34,21 @@ public class Cd extends Command{
 				 if(f2.exists()) {
 					 CmdV2.setPwd(curr);
 				 }else {
-					 System.out.println("Erreur lors du déplacement en amont des fichiers.");
+					 System.out.println("Erreur lors du dï¿½placement en amont des fichiers.");
 				 }
 				 
 			 }else {
 				 System.out.println("Vous ne pouvez pas remonter plus haut que le dossier racine !");
 			 }
 		}else {
-			System.out.println("Le chemin placé en paramètre n'est pas valide.");
+			System.out.println("Le chemin placï¿½ en paramï¿½tre n'est pas valide.");
 		}
 		return true;
 	}
 
 	@Override
 	public void describe() {
-		System.out.println("CD [Param] changer le dossier courant pour celui placé en paramètre.");
+		System.out.println("cd [param] : changer le dossier courant pour celui placï¿½ en paramÃ¨tre.");
 	}
 
 	public static boolean isPoints(String s) {

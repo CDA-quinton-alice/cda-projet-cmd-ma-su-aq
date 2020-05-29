@@ -24,7 +24,7 @@ public class Pwd extends Command implements INonHistory{
 	
 	@Override
 	public void describe() {
-		System.out.println("Je suis la commande Pwd");
+		System.out.println("pwd : affiche le répertoire courant.");
 	}
 
 	

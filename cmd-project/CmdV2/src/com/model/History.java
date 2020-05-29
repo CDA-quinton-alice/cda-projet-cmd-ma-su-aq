@@ -66,7 +66,7 @@ public class History extends Command implements INonHistory{
 
 	@Override
 	public void describe() {
-		System.out.println("history : Affiche la liste des 10 derni�res commandes avec les potentiels param�tres et la date d'�xecution.");
+		System.out.println("history : Affiche la liste des 10 dernières commandes avec les potentiels paramètres et la date d'éxecution.");
 	}
 
 }
