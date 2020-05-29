@@ -17,7 +17,7 @@ public class CmdV2 {
 	private ArrayList<Command> vCommands;
 
 	public CmdV2() {
-		// a remplacer par un ajout modulaire en fonction des classes présente
+		// a remplacer par un ajout modulaire en fonction des classes présentes
 		pwd = System.getProperty("user.dir");
 		vCommands = new ArrayList<>();
 		vCommands.add(new Help());
