@@ -20,7 +20,7 @@ public class Cat extends Command {
 
 	@Override
 	public boolean execute(ArrayList<String> args) {
-		String vNomFicher = args.get(0);
+		String vNomFicher = args.get(0);		//cat fichier.txt
 		try {
 			File vFile = new File(System.getProperty("user.dir") + "\\" + vNomFicher); // Ne récupère pas le fichier
 			if (!vFile.exists()) {
