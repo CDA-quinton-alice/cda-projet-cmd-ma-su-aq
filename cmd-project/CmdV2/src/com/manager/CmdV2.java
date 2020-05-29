@@ -9,6 +9,7 @@ import com.model.Command;
 import com.model.Dir;
 import com.model.Exit;
 import com.model.Help;
+import com.model.Histclear;
 import com.model.History;
 import com.model.IsPrime;
 import com.model.Pwd;
@@ -33,6 +34,7 @@ public class CmdV2 {
 		//vCommands.add(new Crf());
 		vCommands.add(new Cd());
 		vCommands.add(new History());
+		vCommands.add(new Histclear());
 	}
 
 	// GETTER
