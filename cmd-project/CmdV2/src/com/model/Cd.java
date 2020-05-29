@@ -25,9 +25,6 @@ public class Cd extends Command{
 		}
 		String curr = CmdV2.getPwd();
 		
-		System.out.println(str);
-		System.out.println(curr);
-		
 		if(isPoints(str)&&!isRoot(curr)) {
 			 if(isLastBackSlash(curr)) {
 				 curr = curr.substring(0, str.length()-1);
