@@ -22,8 +22,7 @@ public class Exit extends Command{
 	
 	@Override
 	public void describe() {
-		System.out.println("Je suis la commande Exit");
-		
+		System.out.println("exit : Met fin au programme.");
 	}
 
 

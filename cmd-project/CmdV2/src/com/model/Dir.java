@@ -47,8 +47,8 @@ public class Dir extends Command implements INonHistory{
 
 	@Override
 	public void describe() {
-		System.out.println("Je suis la commande DIR");
-
+		System.out.println("dir : Affiche les fichiers et repertoires contenus dans C:\\.");
+		System.out.println("dir [pwd] : Affiche les fichiers et repertoires contenus dans le repertoire courant");
 	}
 
 }

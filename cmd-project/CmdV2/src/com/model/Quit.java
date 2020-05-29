@@ -23,8 +23,7 @@ public class Quit extends Command {
 
 	@Override
 	public void describe() {
-	System.out.println("Je suis la commande Quit, je termine le programe");
-		
+		System.out.println("quit : Met fin au programme.");
 	}
 	
 }
