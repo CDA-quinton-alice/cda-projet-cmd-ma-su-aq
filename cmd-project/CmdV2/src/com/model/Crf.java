@@ -19,8 +19,10 @@ public class Crf extends Command {
 	@Override
 	public boolean execute(ArrayList<String> args) {
 		boolean erreurCreation = false;
-		String vNomFicher = args.get(0); // Récupération du paramètre = nom du fichier
-		File vFile = new File(System.getProperty("user.dir") + "\\" + vNomFicher);
+		String vNomFichier = args.get(0); // Récupération du paramètre = nom du fichier
+		File vFile = new File(System.getProperty("user.dir") + "\\" + vNomFichier);
+		
+		
 		if (!vFile.exists()) {
 			// Test si il existe n'existe pas --> ok pour création
 			try {

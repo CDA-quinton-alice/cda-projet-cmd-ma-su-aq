@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.model.Cat;
 import com.model.Command;
+import com.model.Copy;
 import com.model.Crf;
 import com.model.Dir;
 import com.model.Exit;
@@ -28,6 +29,7 @@ public class CmdV2 {
 		vCommands.add(new IsPrime());
 		vCommands.add(new Dir());
 		vCommands.add(new Crf());
+		vCommands.add(new Copy());
 	}
 
 	// GETTER
