@@ -2,6 +2,7 @@ package com.manager;
 
 import java.util.ArrayList;
 
+import com.model.Cd;
 import com.model.Command;
 import com.model.Exit;
 import com.model.Help;
@@ -18,6 +19,7 @@ public class CmdV2 {
 		vCommands.add(new Help());
 		vCommands.add(new Exit());
 		vCommands.add(new Pwd());
+		vCommands.add(new Cd());
 	}
 
 	// GETTER
