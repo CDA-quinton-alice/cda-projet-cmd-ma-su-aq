@@ -2,7 +2,7 @@ package com.model;
 
 import java.util.ArrayList;
 
-public class Help extends Command {
+public class Help extends Command implements INonHistory{
 
 	public Help() {
 		super("help");
