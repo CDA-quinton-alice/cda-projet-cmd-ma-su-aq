@@ -2,7 +2,7 @@ package com.model;
 
 import java.util.ArrayList;
 
-public class Pwd extends Command{
+public class Pwd extends Command implements INonHistory{
 	public Pwd() {
 		super("pwd");
 	}

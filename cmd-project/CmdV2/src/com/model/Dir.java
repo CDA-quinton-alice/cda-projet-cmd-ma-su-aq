@@ -3,7 +3,7 @@ package com.model;
 import java.io.File;
 import java.util.ArrayList;
 
-public class Dir extends Command {
+public class Dir extends Command implements INonHistory{
 
 	public Dir() {
 		super("dir");
@@ -25,7 +25,7 @@ public class Dir extends Command {
 	}
 
 	@Override
-	public boolean execute(ArrayList<String> args) { // Dir avec un paramètre pour afficher le contenu du rep courant
+	public boolean execute(ArrayList<String> args) { // Dir avec un paramï¿½tre pour afficher le contenu du rep courant
 		String vParam = args.get(0);
 		if (vParam.equalsIgnoreCase("pwd")) {
 			String vPath = System.getProperty("user.dir");
