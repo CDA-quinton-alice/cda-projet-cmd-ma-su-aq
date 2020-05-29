@@ -1,6 +1,10 @@
 package com.manager;
 
+import java.io.File;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import com.model.Cat;
 import com.model.Cd;
@@ -20,21 +24,33 @@ public class CmdV2 {
 	private static ArrayList<Command> vCommands;
 
 	public CmdV2() {
-		// a remplacer par un ajout modulaire en fonction des classes pr�sentes
 		pwd = System.getProperty("user.dir");
-		
 		vCommands = new ArrayList<>();
-		vCommands.add(new Help());
-		vCommands.add(new Exit());
-		vCommands.add(new Pwd());
-		vCommands.add(new Quit());
-		vCommands.add(new Cat());
-		vCommands.add(new IsPrime());
-		vCommands.add(new Dir());
-		//vCommands.add(new Crf());
-		vCommands.add(new Cd());
-		vCommands.add(new History());
-		vCommands.add(new Histclear());
+		File dir = new File(pwd+"\\src\\com\\model");
+		String s[] = dir.list();
+		String s2[] = new String[s.length];
+		for (int z=0;z<s.length;z++) {
+				s2[z] = s[z].substring(0, s[z].lastIndexOf("."));
+			
+		}
+
+		try {
+			for (int i=0;i<s2.length;i++) {
+				String classe = s2[i];
+				Class<?> cls = Class.forName("com.model."+classe);
+				if(Command.class.isAssignableFrom(cls)&&!(cls.getName().toString().equals("com.model.Command"))) {
+					try {
+						Command c = (Command) cls.newInstance();
+						vCommands.add(c);
+					} catch (InstantiationException | IllegalAccessException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}catch(ClassNotFoundException cnf) {
+			System.out.println("C");
+			cnf.getStackTrace();
+		}
 	}
 
 	// GETTER
@@ -51,27 +67,25 @@ public class CmdV2 {
 		CmdV2.pwd = pwd;
 	}
 
-	// Execution avec arguments
-	// A faire, g�rer les cas où la commande n'existe pas
+	
 	public boolean execute(String pCommande, ArrayList<String> pListeArgs) {
-		for (Command command : vCommands) {
-			if (command.getvNomCommand().equalsIgnoreCase(pCommande)) {
-				((History)getCommandByName("history")).ajouterCommande(pCommande, pListeArgs);
-				return command.execute(pListeArgs);
-			}
+		Command command = getCommandByName(pCommande);
+		if(command !=null) {
+			((History)getCommandByName("history")).ajouterCommande(pCommande, pListeArgs);
+			return command.execute(pListeArgs);
+		}else {
+			System.out.println("La commande n'existe pas !");
 		}
 		return true;
 	}
 
-	// Execution sans argument
-	// A faire, gérer les cas où la commande n'existe pas
 	public boolean execute(String pCommande) {
-		// On parcours la liste de toutes les commandes disponibles !
-		for (Command command : vCommands) {
-			if (command.getvNomCommand().equalsIgnoreCase(pCommande)) {
-				((History)getCommandByName("history")).ajouterCommande(pCommande, null);
-				return command.execute();
-			}
+		Command command = getCommandByName(pCommande);
+		if(command !=null) {
+			((History)getCommandByName("history")).ajouterCommande(pCommande, null);
+			return command.execute();
+		}else {
+			System.out.println("La commande n'existe pas !");
 		}
 		return true;
 	}

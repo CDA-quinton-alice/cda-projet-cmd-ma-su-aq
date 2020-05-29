@@ -17,5 +17,7 @@ public abstract class Command {
 		return vNomCommand;
 	}
 	
-	
+	public String toString() {
+		return this.vNomCommand;
+	}
 }

@@ -6,7 +6,7 @@ import java.util.Scanner;
 import com.manager.CmdV2;
 
 public class Program {
-	public static void main(String[] args) {
+	public static void main(String[] args){
 		Scanner scan = new Scanner(System.in);
 
 		boolean continuer = true;
@@ -15,6 +15,7 @@ public class Program {
 		CmdV2 vtest = new CmdV2();
 
 		while (continuer) {
+			
 			//on r�cup�re � chaque boucle le r�pertoire courant
 			System.out.println(CmdV2.getPwd());
 			System.out.print("> ");
