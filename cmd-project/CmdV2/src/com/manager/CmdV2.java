@@ -1,23 +1,10 @@
 package com.manager;
 
 import java.io.File;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
-import com.model.Cat;
-import com.model.Cd;
 import com.model.Command;
-//import com.model.Crf;
-import com.model.Dir;
-import com.model.Exit;
-import com.model.Help;
-import com.model.Histclear;
 import com.model.History;
-import com.model.IsPrime;
-import com.model.Pwd;
-import com.model.Quit;
 
 public class CmdV2 {
 	private static String pwd;
