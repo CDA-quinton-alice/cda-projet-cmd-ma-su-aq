@@ -1,0 +1,13 @@
+eclipse.preferences.version=1
+encoding//src/com/manager/CmdV2.java=UTF-8
+encoding//src/com/model/Cat.java=UTF-8
+encoding//src/com/model/Cd.java=UTF-8
+encoding//src/com/model/Command.java=UTF-8
+encoding//src/com/model/Dir.java=UTF-8
+encoding//src/com/model/Exit.java=UTF-8
+encoding//src/com/model/Help.java=UTF-8
+encoding//src/com/model/History.java=UTF-8
+encoding//src/com/model/IsPrime.java=UTF-8
+encoding//src/com/model/Pwd.java=UTF-8
+encoding//src/com/model/Quit.java=UTF-8
+encoding//src/com/program/Program.java=UTF-8
