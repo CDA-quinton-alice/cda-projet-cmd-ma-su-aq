@@ -2,7 +2,7 @@ package com.model;
 
 import java.util.ArrayList;
 
-public class Help extends Command {
+public class Help extends Command implements INonHistory{
 
 	public Help() {
 		super("help");
@@ -26,7 +26,7 @@ public class Help extends Command {
 	
 	@Override
 	public void describe() {
-		System.out.println("Je suis une commande Help");
+		System.out.println("help [param] : Sans paramètre, donne la liste des commandes disponible, donne la description de la commande en paramètre sinon");
 	}
 
 

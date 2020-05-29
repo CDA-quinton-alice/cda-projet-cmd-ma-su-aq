@@ -22,7 +22,7 @@ public class Cat extends Command {
 	public boolean execute(ArrayList<String> args) {
 		String vNomFicher = args.get(0);		//cat fichier.txt
 		try {
-			File vFile = new File(System.getProperty("user.dir") + "\\" + vNomFicher); // Ne récupère pas le fichier
+			File vFile = new File(System.getProperty("user.dir") + "\\" + vNomFicher); // --> se mettre sur src pour test
 			if (!vFile.exists()) {
 				System.out.println("Erreur le fichier est introuvable");
 			} else {
