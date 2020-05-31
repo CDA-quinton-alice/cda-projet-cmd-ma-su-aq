@@ -10,13 +10,13 @@ public class Help extends Command implements INonHistory{
 
 	@Override
 	public boolean execute() {
-		System.out.println("Bonjour sur la console cda");
+		System.out.println("Voici les différentes commandes du programme CMdV2 que vous pouvez utiliser : ");
 		return true;
 	}
 
 	@Override
 	public boolean execute(ArrayList<String> args) {
-		System.out.println("Bonjour sur la console cda avec les arguments : ");
+		System.out.println("Console cda avec les différents arguments pris en charge : ");
 		for (String string : args) {
 			System.out.print(string+" ");
 		}
@@ -26,7 +26,7 @@ public class Help extends Command implements INonHistory{
 	
 	@Override
 	public void describe() {
-		System.out.println("help [param] : Sans paramètre, donne la liste des commandes disponible, donne la description de la commande en paramètre sinon");
+		System.out.println("help [param] : Sans paramètre. Donne la liste des commandes disponibles, sinon donne la description de la commande en paramètre.");
 	}
 
 
