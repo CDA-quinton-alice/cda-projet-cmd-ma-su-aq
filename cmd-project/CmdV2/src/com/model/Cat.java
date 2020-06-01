@@ -2,7 +2,6 @@ package com.model;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -41,7 +40,7 @@ public class Cat extends Command {
 
 	@Override
 	public void describe() {
-		System.out.println("Je suis une commande cat et j'affiche le contenu du fichier");
+		System.out.println("cat [param] : Affiche le contenu du fichier.");
 	}
 
 }
