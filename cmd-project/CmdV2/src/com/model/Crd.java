@@ -18,20 +18,20 @@ public class Crd extends Command {
 
 	@Override
 	public boolean execute(ArrayList<String> args) {
+
 		boolean erreurCreationRepertoire = false;
 		String vNomRepertoire = args.get(0); // --> pour récupérer le nom du répertoire en guise de paramètre (indice 0)
 		File file = new File(System.getProperty("user.dir") + "\\" + vNomRepertoire);
 
 		if (!file.exists()) {
 			file.mkdir();
-			{
-			}
 			if (!erreurCreationRepertoire) {
-				System.out.println("Le répertoire " + vNomRepertoire + " a bien été créé.");
+				System.out.println("Le répertoire " + vNomRepertoire + " a bien été créé. ");
 			}
 		} else {
 			System.out.println("Erreur dans la création du dossier " + vNomRepertoire
-					+ ". Ce dernier existe sans doute déjà. Veuillez rééssayer ou en créer un autre s'il vous plaît.");
+					+ ". Ce dernier existe déjà. Veuillez spécifier un autre nom de répertoire à créer s'il vous plaît.");
+
 		}
 		return true;
 	}
