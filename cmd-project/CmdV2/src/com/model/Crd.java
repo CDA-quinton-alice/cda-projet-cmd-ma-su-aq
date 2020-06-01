@@ -1,0 +1,41 @@
+package com.model;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+
+public class Crd extends Command {
+
+	public Crd() {
+		super("crd");
+
+	}
+
+	@Override
+	public boolean execute() {
+		System.out.println("Impossible de créer un répertoire sans nom");
+		return true;
+	}
+
+	@Override
+	public boolean execute(ArrayList<String> args) {
+		String vNomRepertoire = args.get(0); // --> pour récupérer le nom du répertoire en guise de paramètre (indice 0)
+		File file = new File(System.getProperty("user.dir") + "\\" + vNomRepertoire);
+		if (!file.exists()) {
+			if (file.mkdir()) {
+				System.out.println("Le répertoire "+vNomRepertoire+" a bien été créé.");
+			} else {
+				System.out.println("Erreur dans la création du dossier"+vNomRepertoire+". Ce dernier existe sans doute déjà. Veuillez rééssayer ou en créer un autre s'il vous plaît.");
+			}
+			return true;
+		}
+		return false;
+	}
+	
+	@Override
+	public void describe() {
+		System.out.println("crd [param] : Créée le dossier placé en paramètre.");
+
+	}
+
+}
