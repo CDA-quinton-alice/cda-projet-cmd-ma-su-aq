@@ -1,12 +1,13 @@
 package com.program;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.manager.CmdV2;
 
 public class Program {
-	public static void main(String[] args){
+	public static void main(String[] args) throws IOException {
 		Scanner scan = new Scanner(System.in);
 
 		boolean continuer = true;
@@ -15,36 +16,34 @@ public class Program {
 		CmdV2 vtest = new CmdV2();
 
 		while (continuer) {
-			
-			//on rï¿½cupï¿½re ï¿½ chaque boucle le rï¿½pertoire courant
+
+			// on récupère à chaque boucle le répertoire courant
 			System.out.println(CmdV2.getPwd());
 			System.out.print("> ");
-			
-			//on demande la saisie ï¿½ l'utilisateur
+
+			// on demande la saisie à l'utilisateur
 			String vStr = scan.nextLine();
-			
-			
-			//dï¿½coupage de la saisie de l'utilisateur
-			//Pas la meilleure solution, possible amï¿½lioration !
-			//les commandes doivent fonctionner quelque soit le nombre d'espaces
-			
+
+			// découpage de la saisie de l'utilisateur
+			// Pas la meilleure solution, possible amélioration !
+			// les commandes doivent fonctionner quelque soit le nombre d'espaces
+
 			String[] vCommandArgument = vStr.split("\\ ");
 			String vCom = vCommandArgument[0];
 			ArrayList<String> vArg = new ArrayList<>();
-			
-			for(int i = 1;i<vCommandArgument.length;i++) {
+
+			for (int i = 1; i < vCommandArgument.length; i++) {
 				vArg.add(vCommandArgument[i]);
 			}
 
-			if(vArg.size() == 0) {
+			if (vArg.size() == 0) {
 				continuer = vtest.execute(vCom);
-			}else {
-				continuer = vtest.execute(vCom,vArg);
+			} else {
+				continuer = vtest.execute(vCom, vArg);
 			}
-			
-			
+
 			System.out.println();
-			
+
 		}
 	}
 }
