@@ -20,7 +20,6 @@ public class CmdV2 {
 			s2[z] = s[z].substring(0, s[z].lastIndexOf("."));
 
 		}
-
 		try {
 			for (int i = 0; i < s2.length; i++) {
 				String classe = s2[i];
@@ -35,7 +34,7 @@ public class CmdV2 {
 				}
 			}
 		} catch (ClassNotFoundException cnf) {
-			System.out.println("C");
+			System.out.println(cnf.toString());
 			cnf.getStackTrace();
 		}
 	}
