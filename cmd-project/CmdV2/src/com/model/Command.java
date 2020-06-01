@@ -12,7 +12,11 @@ public abstract class Command {
 
 	public abstract boolean execute();
 
+<<<<<<< HEAD
 	public abstract boolean execute(ArrayList<String> args) throws IOException;
+=======
+	public abstract boolean execute(ArrayList<String> args);
+>>>>>>> 4eb1209df0ee038f85c02cb528d41e9d6b6c3ba5
 
 	public abstract void describe();
 
