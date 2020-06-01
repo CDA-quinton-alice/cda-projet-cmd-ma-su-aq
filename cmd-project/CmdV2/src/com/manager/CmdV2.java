@@ -40,7 +40,7 @@ public class CmdV2 {
 	}
 
 	// GETTER
-	public ArrayList<Command> getvCommands() {
+	public static ArrayList<Command> getvCommands() {
 		return vCommands;
 	}
 
