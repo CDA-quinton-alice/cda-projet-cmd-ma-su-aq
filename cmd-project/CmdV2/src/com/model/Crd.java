@@ -1,7 +1,6 @@
 package com.model;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class Crd extends Command {
@@ -18,7 +17,7 @@ public class Crd extends Command {
 	}
 
 	@Override
-	public boolean execute(ArrayList<String> args) throws IOException {
+	public boolean execute(ArrayList<String> args) {
 		boolean erreurCreationRepertoire = false;
 		String vNomRepertoire = args.get(0); // --> pour récupérer le nom du répertoire en guise de paramètre (indice 0)
 		File file = new File(System.getProperty("user.dir") + "\\" + vNomRepertoire);
