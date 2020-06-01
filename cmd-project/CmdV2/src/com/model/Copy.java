@@ -49,13 +49,13 @@ public class Copy extends Command {
 			while (!sortie) {
 
 				if (!vFichierCible.exists()) {
-					System.out.println("Le fichier cible n'existe pas, ok création");
+					System.out.println("Le fichier cible n'existe pas, création ok");
 					// Construction d'un nouveau fichier
 
 					try {
 						vFichierCible.createNewFile();
 					} catch (IOException e1) {
-						System.out.println("erreur création");
+						System.out.println("erreur dans la création du fichier demandé");
 						e1.printStackTrace();
 					}
 					sortie = true;
@@ -68,7 +68,7 @@ public class Copy extends Command {
 					try {
 						vFichierCible.createNewFile();
 					} catch (IOException e1) {
-						System.out.println("erreur création");
+						System.out.println("erreur dans la création du fichier demandé");
 						e1.printStackTrace();
 					}
 					sortie = true;
@@ -85,16 +85,16 @@ public class Copy extends Command {
 
 					while (nbOctetsLus != -1) {
 
-						// ecriture du tableau copier du debut jusqu'au nombre d'octet lus --> coller
+						// ecriture du tableau copié du debut jusqu'au nombre d'octet lus --> coller
 						fichierSortie.write(vBufferDeTransfert, 0, nbOctetsLus);
 
 						// remplissage Ã  nouveau
 						nbOctetsLus = fichierSource.read(vBufferDeTransfert);
 					}
-					System.out.println("Copie faite avec succès (" + vFichierRecherche.length() + " octets).");
+					System.out.println("Copie du fichier faite avec succès (" + vFichierRecherche.length() + " octets).");
 
 				} catch (IOException e) {
-					System.out.println("La commande a rencontré un problème " + e.getMessage() + ".");
+					System.out.println("La commande demandée a rencontré un problème. Veuillez recommencer ou spécifier une autre commande s'il vous plaît. " + e.getMessage() + ".");
 				}
 			}
 		}

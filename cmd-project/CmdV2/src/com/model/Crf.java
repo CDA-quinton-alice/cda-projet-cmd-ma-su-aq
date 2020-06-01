@@ -31,10 +31,10 @@ public class Crf extends Command {
 				erreurCreation = true;
 			}
 			if (!erreurCreation) {
-				System.out.println("Le fichier a bien été créé");
+				System.out.println("Le fichier"+vNomFichier +" a bien été créé.");
 			}
 		} else {
-			System.out.println("Attention le fichier existe déjà");
+			System.out.println("Attention le fichier"+vNomFichier+" existe déjà. Veuillez spécifier un autre nom de fichier à créer s'il vous plaît.");
 			//--> COPIER LE FICHER avec même code que commande COPY
 		}
 		return true;

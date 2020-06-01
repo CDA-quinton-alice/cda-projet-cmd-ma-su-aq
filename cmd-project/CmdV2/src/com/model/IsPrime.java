@@ -41,7 +41,7 @@ public class IsPrime extends Command {
 
 	@Override
 	public void describe() {
-		System.out.println("isprime : VÃ©rifie si le nombre est un nombre premier yes/no.");
+		System.out.println("isprime : Vérifie si le nombre est un nombre premier. Affiche yes si ce dernier en est un, no si il n'en n'est pas un.");
 	}
 
 }
