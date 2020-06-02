@@ -26,7 +26,7 @@ public class Copy extends Command {
 	@Override
 	public boolean execute(ArrayList<String> args) { // Erreur de saisie à gérer
 		boolean sortie = false;
-		String vNomFichierRecherche = args.get(0); // Récupération du paramètre = nom du fichier
+		String vNomFichierRecherche = args.get(0);// Récupération du paramètre = nom du fichier
 		File vFichierRecherche = new File(vNomFichierRecherche);
 
 		if (!vFichierRecherche.exists()) {
@@ -42,7 +42,7 @@ public class Copy extends Command {
 						vNomFichierRecherche.length());
 			}
 			// Construction du nouveau fichier
-			String vFichierCibleNom = vFichierRecherchePartieNom + "-" + (++cmpt) + vFichierRechecheExtension;
+			String vFichierCibleNom = args.get(1);
 			File vFichierCible = new File(vFichierCibleNom);
 
 			while (!sortie) {
@@ -58,7 +58,17 @@ public class Copy extends Command {
 					}
 					sortie = true;
 				} else {
-					vFichierCibleNom = vFichierRecherchePartieNom + "-" + (++cmpt) + vFichierRechecheExtension;
+					// Construction du fichier destination si déjà présent
+					int vIndexDernierPointFichierDest = vFichierCibleNom.lastIndexOf('.');
+					String vFichierDestinationNom = vFichierCibleNom.substring(0, vIndexDernierPointFichierDest);
+					String vFichierDestinationExtension;
+					if (vIndexDernierPointFichierDest == -1) { // Si le fichier ne contient pas d'extension
+						vFichierDestinationExtension = "";
+					} else {
+						vFichierDestinationExtension = vFichierCibleNom.substring(vIndexDernierPointFichierDest,
+								vFichierCibleNom.length());
+					}
+					vFichierCibleNom = vFichierDestinationNom + "-" + (++cmpt) + vFichierDestinationExtension;
 					vFichierCible = new File(vFichierCibleNom);
 					try {
 						vFichierCible.createNewFile();
@@ -91,7 +101,7 @@ public class Copy extends Command {
 
 	@Override
 	public void describe() {
-		System.out.println("copy [param] : Copie le fichier placé en paramètre.");
+		System.out.println("copy [src] [dest] : Copie le fichier source vers fichier destination.");
 	}
 
 }
