@@ -33,7 +33,7 @@ public class Find extends Command {
 		boolean isEnd = false;
 		for (String str : args) {
 
-			// On s'occupe de récupérer ce qui a été placé en argument
+			// On s'occupe de rÃ©cupÃ©rer ce qui a Ã©tÃ© placÃ© en argument
 			if (isStart) {
 				start = str;
 				isStart = false;
@@ -69,7 +69,7 @@ public class Find extends Command {
 		if (answer.size() > 0) {
 			answer.stream().forEach(System.out::println);
 		} else {
-			System.out.println("Aucune occurence trouvé.");
+			System.out.println("Aucune occurence trouvÃ©e.");
 		}
 
 		return true;
@@ -78,8 +78,8 @@ public class Find extends Command {
 	@Override
 	public void describe() {
 		System.out.println(
-				"find [-start] [-end] [param] : Cherche dans le répertoire courant des fichiers commençant et/ou \n"
-						+ "terminant le nom spécifié en paramètre ou cherche l'exacte terminologie sinon.");
+				"find [-start] [-end] [param] : Cherche dans le rÃ©pertoire courant des fichiers commenÃ§ant et/ou \n"
+						+ "terminant le nom spÃ©cifiÃ© en paramÃ¨tre ou cherche l'exacte terminologie sinon.");
 
 	}
 

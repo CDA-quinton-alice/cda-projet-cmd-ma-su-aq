@@ -24,13 +24,13 @@ public class Copy extends Command {
 	}
 
 	@Override
-	public boolean execute(ArrayList<String> args) { // Erreur de saisie à gérer
+	public boolean execute(ArrayList<String> args) { // Erreur de saisie Ã  gÃ©rer
 		boolean sortie = false;
-		String vNomFichierRecherche = args.get(0); // Récupération du paramètre = nom du fichier
+		String vNomFichierRecherche = args.get(0); // RÃ©cupÃ©ration du paramÃ¨tre = nom du fichier
 		File vFichierRecherche = new File(vNomFichierRecherche);
 
 		if (!vFichierRecherche.exists()) {
-			System.out.println("Impossible de trouver le fichier à copier"); // Controle
+			System.out.println("Impossible de trouver le fichier Ã  copier"); // ContrÃ´le
 		} else {
 			int vIndexDernierPoint = vNomFichierRecherche.lastIndexOf('.');
 			String vFichierRecherchePartieNom = vNomFichierRecherche.substring(0, vIndexDernierPoint);
@@ -40,7 +40,6 @@ public class Copy extends Command {
 			} else {
 				vFichierRechecheExtension = vNomFichierRecherche.substring(vIndexDernierPoint,
 						vNomFichierRecherche.length());
-				System.out.println(vFichierRechecheExtension);
 			}
 			// Construction du nouveau fichier
 			String vFichierCibleNom = vFichierRecherchePartieNom + "-" + (++cmpt) + vFichierRechecheExtension;
@@ -49,13 +48,12 @@ public class Copy extends Command {
 			while (!sortie) {
 
 				if (!vFichierCible.exists()) {
-					System.out.println("Le fichier cible n'existe pas, création ok");
 					// Construction d'un nouveau fichier
 
 					try {
 						vFichierCible.createNewFile();
 					} catch (IOException e1) {
-						System.out.println("erreur dans la création du fichier demandé");
+						System.out.println("Erreur dans la crÃ©ation du fichier demandÃ©e.");
 						e1.printStackTrace();
 					}
 					sortie = true;
@@ -65,7 +63,7 @@ public class Copy extends Command {
 					try {
 						vFichierCible.createNewFile();
 					} catch (IOException e1) {
-						System.out.println("erreur dans la création du fichier demandé");
+						System.out.println("Erreur dans la crÃ©ation du fichier demandÃ©e.");
 						e1.printStackTrace();
 					}
 					sortie = true;
@@ -79,11 +77,11 @@ public class Copy extends Command {
 						nbOctetsLus = fichierSource.read(vBufferDeTransfert);
 					}
 					System.out
-							.println("Copie du fichier faite avec succès (" + vFichierRecherche.length() + " octets).");
+							.println("Copie du fichier faite avec succÃ¨s (" + vFichierRecherche.length() + " octets).");
 
 				} catch (IOException e) {
 					System.out.println(
-							"La commande demandée a rencontré un problème. Veuillez recommencer ou spécifier une autre commande s'il vous plaît. "
+							"La commande demandÃ©e a rencontrÃ© un problÃ¨me. Veuillez recommencer ou spÃ©cifier une autre commande s'il vous plaÃ®t. "
 									+ e.getMessage() + ".");
 				}
 			}
@@ -93,7 +91,7 @@ public class Copy extends Command {
 
 	@Override
 	public void describe() {
-		System.out.println("copy [param] : Copie le fichier placé en paramètre.");
+		System.out.println("copy [param] : Copie le fichier placÃ© en paramÃ¨tre.");
 	}
 
 }

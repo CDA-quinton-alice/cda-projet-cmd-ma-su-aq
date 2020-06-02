@@ -16,15 +16,15 @@ public class Program {
 
 		while (continuer) {
 
-			// on r�cup�re � chaque boucle le r�pertoire courant
+			// on récupère à chaque boucle le répertoire courant
 			System.out.println(CmdV2.getPwd());
 			System.out.print("> ");
 
-			// on demande la saisie � l'utilisateur
+			// on demande la saisie à l'utilisateur
 			String vStr = scan.nextLine();
 
-			// d�coupage de la saisie de l'utilisateur
-			// Pas la meilleure solution, possible am�lioration !
+			// découpage de la saisie de l'utilisateur
+			// Pas la meilleure solution, possible amélioration !
 			// les commandes doivent fonctionner quelque soit le nombre d'espaces
 
 			String[] vCommandArgument = vStr.split("\\ ");

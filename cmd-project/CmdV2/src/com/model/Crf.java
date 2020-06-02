@@ -19,30 +19,30 @@ public class Crf extends Command {
 	@Override
 	public boolean execute(ArrayList<String> args) {
 		boolean erreurCreation = false;
-		String vNomFichier = args.get(0); // R�cup�ration du param�tre = nom du fichier
+		String vNomFichier = args.get(0); // Récupération du paramètre = nom du fichier
 		File vFile = new File(System.getProperty("user.dir") + "\\" + vNomFichier);
 
 		if (!vFile.exists()) {
-			// Test si il existe n'existe pas --> ok pour cr�ation
+			// Test si il existe n'existe pas --> ok pour création
 			try {
 				vFile.createNewFile();
 			} catch (IOException e) {
 				erreurCreation = true;
 			}
 			if (!erreurCreation) {
-				System.out.println("Le fichier " + vNomFichier + " a bien �t� cr��.");
+				System.out.println("Le fichier " + vNomFichier + " a bien été créé.");
 			}
 		} else {
 			System.out.println("Attention le fichier " + vNomFichier
-			// --> COPIER LE FICHER avec m�me code que commande COPY
-					+ " existe d�j�. Veuillez sp�cifier un autre nom de fichier � cr�er s'il vous pla�t.");
+			// --> COPIER LE FICHER avec même code que commande COPY
+					+ " existe déjà. Veuillez spécifier un autre nom de fichier à créer s'il vous plaît.");
 		}
 		return true;
 	}
 
 	@Override
 	public void describe() {
-		System.out.println("crf [param] : Cr��e le fichier plac� en param�tre.");
+		System.out.println("crf [param] : Crée le fichier placé en paramètre.");
 	}
 
 }

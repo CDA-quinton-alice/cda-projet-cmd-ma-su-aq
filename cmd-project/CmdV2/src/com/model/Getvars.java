@@ -40,16 +40,16 @@ public class Getvars extends Command {
 				System.out.println(mapEntry.getKey() + "\t\t\t" + mapEntry.getValue());
 			}
 		} else {
-			System.out.println("Paramètre inconnu");
+			System.out.println("ParamÃ¨tre inconnu");
 		}
 		return true;
 	}
 
 	@Override
 	public void describe() {
-		System.out.println("getvars : Affiche les variables d'environnement et les propriétés de la JVM.");
+		System.out.println("getvars : Affiche les variables d'environnement et les propriÃ©tÃ©s de la JVM.");
 		System.out.println("getvars [-env] : Affiche les variables d'environnement.");
-		System.out.println("getvars [-prop] : Affiche les propriétés de la JVM.");
+		System.out.println("getvars [-prop] : Affiche les propriÃ©tÃ©s de la JVM.");
 	}
 
 }

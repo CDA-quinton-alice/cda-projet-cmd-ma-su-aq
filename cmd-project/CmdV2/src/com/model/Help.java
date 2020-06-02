@@ -30,7 +30,7 @@ public class Help extends Command implements INonHistory {
 	@Override
 	public void describe() {
 		System.out.println(
-				"help [param] : Sans paramètre, donne la liste des commandes disponibles, donne la description de la commande en paramètre sinon");
+				"help [param] : Sans paramètre. Donne la liste des commandes disponibles, donne la description de la commande en paramètre sinon");
 
 	}
 }

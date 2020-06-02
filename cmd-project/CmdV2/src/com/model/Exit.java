@@ -14,7 +14,6 @@ public class Exit extends Command {
 		return false; // return false car c'est la commande pour quitter le programme
 	}
 
-	// Camouflage no jutsu !
 	@Override
 	public boolean execute(ArrayList<String> args) {
 		this.describe();

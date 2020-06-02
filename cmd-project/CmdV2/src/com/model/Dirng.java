@@ -41,7 +41,7 @@ public class Dirng extends Command {
 
 	@Override
 	public void describe() {
-		System.out.println("dirng : Affiche le contenu du rep en cours et compteurs.");
+		System.out.println("dirng : Affiche le contenu du répertoire en cours ainsi que les compteurs.");
 
 	}
 

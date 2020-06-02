@@ -30,6 +30,7 @@ public class CmdV2 {
 		}
 
 		// on recupere la liste des fichiers
+		// on récupere la liste des fichiers
 		String s[] = dir.list();
 		String s2[] = new String[s.length];
 
@@ -45,9 +46,11 @@ public class CmdV2 {
 				String classe = s2[i];
 
 				// on tente de recuperer chaque classe
+				// on tente de récuperer chaque classe
 				Class<?> cls = Class.forName("com.model." + classe);
 
 				// et on teste s'il herite de Command
+				// et on teste s'il hérite de Command
 				if (Command.class.isAssignableFrom(cls) && !(cls.getName().toString().equals("com.model.Command"))) {
 					try {
 						// on instancie alors la classe puis on l'ajoute dans la liste des commandes
@@ -80,9 +83,16 @@ public class CmdV2 {
 	}
 
 	public boolean execute(String pCommande, ArrayList<String> pListeArgs) {
+		// on recupere la commande
 		Command command = getCommandByName(pCommande);
+
+		// on teste si elle existe
 		if (command != null) {
+			// si oui on tente d'ajouter la commande entree dans les logs
+			// on laisse la classe Histoire se debrouiller
 			((History) getCommandByName("history")).ajouterCommande(pCommande, pListeArgs);
+
+			// on execute la commande qui accepte la liste d'argument
 			return command.execute(pListeArgs);
 		} else {
 			System.out.println("La commande n'existe pas !");
@@ -102,8 +112,10 @@ public class CmdV2 {
 	}
 
 	public static Command getCommandByName(String pCmd) {
+		// on parcours toutes les commandes que l'on a deja accepte
 		for (Command command : vCommands) {
 			if (command.getvNomCommand().equalsIgnoreCase(pCmd)) {
+				// si les noms sont concordants
 				return command;
 			}
 		}

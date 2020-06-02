@@ -25,7 +25,7 @@ public class Histclear extends Command implements INonHistory {
 
 	@Override
 	public void describe() {
-		System.out.println("histclear : Efface l'historique des commandes conservées.");
+		System.out.println("histclear : Efface l'historique des commandes conservÃ©es.");
 
 	}
 
