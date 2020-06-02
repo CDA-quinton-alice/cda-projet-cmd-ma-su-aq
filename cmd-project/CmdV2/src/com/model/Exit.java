@@ -2,7 +2,7 @@ package com.model;
 
 import java.util.ArrayList;
 
-public class Exit extends Command{
+public class Exit extends Command {
 
 	public Exit() {
 		super("exit");
@@ -14,16 +14,16 @@ public class Exit extends Command{
 		return false; // return false car c'est la commande pour quitter le programme
 	}
 
-	//Camouflage no jutsu !
+	// Camouflage no jutsu !
 	@Override
 	public boolean execute(ArrayList<String> args) {
-		return this.execute();
+		this.describe();
+		return true;
 	}
-	
+
 	@Override
 	public void describe() {
 		System.out.println("exit : Met fin au programme.");
 	}
-
 
 }

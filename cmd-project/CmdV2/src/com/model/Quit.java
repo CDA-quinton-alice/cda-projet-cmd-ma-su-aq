@@ -11,19 +11,19 @@ public class Quit extends Command {
 	@Override
 	public boolean execute() {
 		System.out.println("Bye !");
-		return false; //Retourne False pour sortir de la boucle
+		return false; // Retourne False pour sortir de la boucle
 	}
 
-	//Camouflage...
+	// Camouflage...
 	@Override
 	public boolean execute(ArrayList<String> args) {
-		return this.execute();
-		
+		this.describe();
+		return true;
 	}
 
 	@Override
 	public void describe() {
 		System.out.println("quit : Met fin au programme.");
 	}
-	
+
 }

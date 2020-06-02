@@ -19,10 +19,9 @@ public class Copy extends Command {
 
 	@Override
 	public boolean execute() {
-		System.out.println("Impossible de copier un fichier fantôme");
+		this.describe();
 		return true;
 	}
-
 
 	@Override
 	public boolean execute(ArrayList<String> args) { // Erreur de saisie à gérer
@@ -31,7 +30,7 @@ public class Copy extends Command {
 		File vFichierRecherche = new File(vNomFichierRecherche);
 
 		if (!vFichierRecherche.exists()) {
-			System.out.println("Impossible de trouver le fichier à copier"); //Controle
+			System.out.println("Impossible de trouver le fichier à copier"); // Controle
 		} else {
 			int vIndexDernierPoint = vNomFichierRecherche.lastIndexOf('.');
 			String vFichierRecherchePartieNom = vNomFichierRecherche.substring(0, vIndexDernierPoint);
@@ -39,7 +38,8 @@ public class Copy extends Command {
 			if (vIndexDernierPoint == -1) { // Si le fichier ne contient pas d'extension
 				vFichierRechecheExtension = "";
 			} else {
-				vFichierRechecheExtension = vNomFichierRecherche.substring(vIndexDernierPoint, vNomFichierRecherche.length());
+				vFichierRechecheExtension = vNomFichierRecherche.substring(vIndexDernierPoint,
+						vNomFichierRecherche.length());
 				System.out.println(vFichierRechecheExtension);
 			}
 			// Construction du nouveau fichier
@@ -59,12 +59,9 @@ public class Copy extends Command {
 						e1.printStackTrace();
 					}
 					sortie = true;
-
 				} else {
-
 					vFichierCibleNom = vFichierRecherchePartieNom + "-" + (++cmpt) + vFichierRechecheExtension;
 					vFichierCible = new File(vFichierCibleNom);
-					
 					try {
 						vFichierCible.createNewFile();
 					} catch (IOException e1) {
@@ -72,29 +69,22 @@ public class Copy extends Command {
 						e1.printStackTrace();
 					}
 					sortie = true;
-					
 				}
-
 				try (InputStream fichierSource = new FileInputStream(vFichierRecherche);
 						OutputStream fichierSortie = new FileOutputStream(vFichierCible)) {
-
 					byte[] vBufferDeTransfert = new byte[BUFFER_SIZE];
-
-					// remplissage du buffer de transfert --> copier
 					int nbOctetsLus = fichierSource.read(vBufferDeTransfert);
-
 					while (nbOctetsLus != -1) {
-
-						// ecriture du tableau copié du debut jusqu'au nombre d'octet lus --> coller
 						fichierSortie.write(vBufferDeTransfert, 0, nbOctetsLus);
-
-						// remplissage Ã  nouveau
 						nbOctetsLus = fichierSource.read(vBufferDeTransfert);
 					}
-					System.out.println("Copie du fichier faite avec succès (" + vFichierRecherche.length() + " octets).");
+					System.out
+							.println("Copie du fichier faite avec succès (" + vFichierRecherche.length() + " octets).");
 
 				} catch (IOException e) {
-					System.out.println("La commande demandée a rencontré un problème. Veuillez recommencer ou spécifier une autre commande s'il vous plaît. " + e.getMessage() + ".");
+					System.out.println(
+							"La commande demandée a rencontré un problème. Veuillez recommencer ou spécifier une autre commande s'il vous plaît. "
+									+ e.getMessage() + ".");
 				}
 			}
 		}

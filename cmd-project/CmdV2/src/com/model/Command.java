@@ -1,6 +1,5 @@
 package com.model;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public abstract class Command {
@@ -12,7 +11,7 @@ public abstract class Command {
 
 	public abstract boolean execute();
 
-	public abstract boolean execute(ArrayList<String> args) throws IOException;
+	public abstract boolean execute(ArrayList<String> args);
 
 	public abstract void describe();
 
