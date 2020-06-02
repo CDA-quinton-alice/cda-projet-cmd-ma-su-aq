@@ -30,6 +30,7 @@ public class CmdV2 {
 		}
 
 		// on recupere la liste des fichiers
+		// on récupere la liste des fichiers
 		String s[] = dir.list();
 		String s2[] = new String[s.length];
 
@@ -45,9 +46,11 @@ public class CmdV2 {
 				String classe = s2[i];
 
 				// on tente de recuperer chaque classe
+				// on tente de récuperer chaque classe
 				Class<?> cls = Class.forName("com.model." + classe);
 
 				// et on teste s'il herite de Command
+				// et on teste s'il hérite de Command
 				if (Command.class.isAssignableFrom(cls) && !(cls.getName().toString().equals("com.model.Command"))) {
 					try {
 						// on instancie alors la classe puis on l'ajoute dans la liste des commandes
