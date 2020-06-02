@@ -77,8 +77,9 @@ public class cmdFind extends Command {
 
 	@Override
 	public void describe() {
-		System.out.println("find [-start] [-end]  : Cherche dans le répertoire courant des fichiers commençant et/ou \n"
-				+ "terminant le nom spécifié en paramètre ou cherche l'exacte terminologie sinon.");
+		System.out.println(
+				"find [-start] [-end] [param] : Cherche dans le répertoire courant des fichiers commençant et/ou \n"
+						+ "terminant le nom spécifié en paramètre ou cherche l'exacte terminologie sinon.");
 
 	}
 
