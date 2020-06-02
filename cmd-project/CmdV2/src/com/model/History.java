@@ -7,51 +7,50 @@ import java.util.Date;
 
 import com.manager.CmdV2;
 
-public class History extends Command implements INonHistory{
+public class History extends Command implements INonHistory {
 	private ArrayList<String> history = new ArrayList<>();
 	private final static int MAX_LOG = 10;
-	
+
 	public History() {
 		super("history");
-		
+
 	}
 
-	//GETTER
+	// GETTER
 	public ArrayList<String> getHistory() {
 		return history;
 	}
-	
+
 	public static int getMaxLog() {
 		return MAX_LOG;
 	}
 
-	//SETTER
+	// SETTER
 	public void setHistory(ArrayList<String> history) {
 		this.history = history;
 	}
-	
-	
+
 	public void ajouterCommande(String cmd, ArrayList<String> args) {
 		Command c = CmdV2.getCommandByName(cmd);
-		if(c != null) {
-			if(!(c instanceof INonHistory)) {
+		if (c != null) {
+			if (!(c instanceof INonHistory)) {
 				SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss dd/MM/yyyy");
 				Date curr = Calendar.getInstance().getTime();
 				StringBuilder str = new StringBuilder();
 				str.append(sdf.format(curr)).append(" : ").append(cmd);
-				if(args != null) {
+				if (args != null) {
 					for (String string : args) {
 						str.append(" ").append(string);
 					}
 				}
-				if(history.size() == MAX_LOG) {
+				if (history.size() == MAX_LOG) {
 					history.remove(0);
 				}
-				history.add(str.toString());	
+				history.add(str.toString());
 			}
 		}
 	}
-	
+
 	@Override
 	public boolean execute() {
 		history.stream().forEach(System.out::println);
@@ -60,13 +59,14 @@ public class History extends Command implements INonHistory{
 
 	@Override
 	public boolean execute(ArrayList<String> args) {
-		this.execute();
+		this.describe();
 		return true;
 	}
 
 	@Override
 	public void describe() {
-		System.out.println("history : Affiche la liste des 10 dernières commandes avec les potentiels paramètres ainsi que la date d'éxecution.");
+		System.out.println(
+				"history : Affiche la liste des 10 dernières commandes avec les potentiels paramètres ainsi que la date d'éxecution.");
 	}
 
 }

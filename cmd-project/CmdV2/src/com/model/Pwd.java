@@ -16,10 +16,10 @@ public class Pwd extends Command implements INonHistory {
 		return true;
 	}
 
-	// Camouflage no jutsu !
 	@Override
 	public boolean execute(ArrayList<String> args) {
-		return this.execute();
+		this.describe();
+		return true;
 	}
 
 	@Override

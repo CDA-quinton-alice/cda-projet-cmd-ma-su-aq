@@ -35,7 +35,8 @@ public class Dirng extends Command {
 
 	@Override
 	public boolean execute(ArrayList<String> args) {
-		return this.execute();
+		this.describe();
+		return true;
 	}
 
 	@Override

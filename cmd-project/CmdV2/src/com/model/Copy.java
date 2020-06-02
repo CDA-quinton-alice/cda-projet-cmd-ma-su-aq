@@ -19,7 +19,7 @@ public class Copy extends Command {
 
 	@Override
 	public boolean execute() {
-		System.out.println("Impossible de copier un fichier fantôme");
+		this.describe();
 		return true;
 	}
 
