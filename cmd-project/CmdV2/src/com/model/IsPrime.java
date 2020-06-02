@@ -20,7 +20,7 @@ public class IsPrime extends Command {
 		int tmp = 0;
 		boolean trouve = true;
 
-		if (vNbaTester == 0 || vNbaTester == 1) {
+		if (vNbaTester <= 1) {
 			System.out.println("no");
 		} else {
 			tmp = vNbaTester / 2;
