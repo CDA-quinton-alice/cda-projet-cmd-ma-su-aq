@@ -80,9 +80,16 @@ public class CmdV2 {
 	}
 
 	public boolean execute(String pCommande, ArrayList<String> pListeArgs) {
+		// on recupere la commande
 		Command command = getCommandByName(pCommande);
+
+		// on teste si elle existe
 		if (command != null) {
+			// si oui on tente d'ajouter la commande entree dans les logs
+			// on laisse la classe Histoire se debrouiller
 			((History) getCommandByName("history")).ajouterCommande(pCommande, pListeArgs);
+
+			// on execute la commande qui accepte la liste d'argument
 			return command.execute(pListeArgs);
 		} else {
 			System.out.println("La commande n'existe pas !");
@@ -102,8 +109,10 @@ public class CmdV2 {
 	}
 
 	public static Command getCommandByName(String pCmd) {
+		// on parcours toutes les commandes que l'on a deja accepte
 		for (Command command : vCommands) {
 			if (command.getvNomCommand().equalsIgnoreCase(pCmd)) {
+				// si les noms sont concordants
 				return command;
 			}
 		}
