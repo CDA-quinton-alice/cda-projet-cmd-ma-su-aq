@@ -41,18 +41,20 @@ public class Cd extends Command {
 				CmdV2.setPwd(str);
 			} else {
 				File f3 = new File(str);
-				if (f3.isAbsolute()) {
-					CmdV2.setPwd(str);
-				} else {
-					File f4 = new File(curr + "\\" + str);
-					if (f4.exists()) {
-						if (isRoot(curr)) {
-							CmdV2.setPwd(curr.substring(0, curr.length() - 1) + "\\" + str);
-						} else {
-							CmdV2.setPwd(curr + "\\" + str);
-						}
+				if (f3.exists()) {
+					if (f3.isAbsolute()) {
+						CmdV2.setPwd(str);
 					} else {
-						System.out.println("Le chemin demandé n'existe pas !");
+						File f4 = new File(curr + "\\" + str);
+						if (f4.exists()) {
+							if (isRoot(curr)) {
+								CmdV2.setPwd(curr.substring(0, curr.length() - 1) + "\\" + str);
+							} else {
+								CmdV2.setPwd(curr + "\\" + str);
+							}
+						} else {
+							System.out.println("Le chemin demandé n'existe pas !");
+						}
 					}
 				}
 			}
@@ -73,6 +75,12 @@ public class Cd extends Command {
 	public static boolean isRoot(String s) {
 		s = s.toLowerCase();
 		return s.matches("[a-zA-Z]:\\\\") || s.matches("[a-zA-Z]:/");
+	}
+
+	public static boolean isOk(String s) {
+		File f1 = new File(s);
+		File f2 = new File(CmdV2.getPwd() + "\\" + s);
+		return f1.exists() || f2.exists();
 	}
 
 	public static boolean isLastBackSlash(String s) {

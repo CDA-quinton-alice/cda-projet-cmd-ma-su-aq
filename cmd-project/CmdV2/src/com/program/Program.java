@@ -22,12 +22,11 @@ public class Program {
 
 			// on demande la saisie à l'utilisateur
 			String vStr = scan.nextLine();
-
-			// découpage de la saisie de l'utilisateur
-			// Pas la meilleure solution, possible amélioration !
-			// les commandes doivent fonctionner quelque soit le nombre d'espaces
+			vStr = vStr.trim();
+			vStr = vStr.replaceAll(" +", " ");
 
 			String[] vCommandArgument = vStr.split("\\ ");
+
 			String vCom = vCommandArgument[0];
 			ArrayList<String> vArg = new ArrayList<>();
 
