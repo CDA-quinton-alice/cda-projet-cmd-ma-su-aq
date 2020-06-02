@@ -26,6 +26,7 @@ public class cmdFind extends Command {
 
 		String start = null;
 		String end = null;
+		String exact = null;
 		ArrayList<String> answer = new ArrayList<>();
 
 		boolean isStart = false;
@@ -43,9 +44,10 @@ public class cmdFind extends Command {
 				isStart = true;
 			} else if (str.equalsIgnoreCase("-end")) {
 				isEnd = true;
+			} else {
+				exact = str;
 			}
 		}
-
 		for (int i = 0; i < s.length; i++) {
 			String curr = s[i].toLowerCase();
 			if (start != null) {
@@ -54,6 +56,10 @@ public class cmdFind extends Command {
 				}
 			} else if (end != null) {
 				if (curr.matches(".*" + end + "$")) {
+					answer.add(s[i]);
+				}
+			} else {
+				if (curr.matches("^" + exact + "$")) {
 					answer.add(s[i]);
 				}
 			}
