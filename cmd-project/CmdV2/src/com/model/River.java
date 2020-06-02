@@ -1,7 +1,6 @@
 package com.model;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class River extends Command {
 
@@ -19,30 +18,37 @@ public class River extends Command {
 	public boolean execute(ArrayList<String> args) { // river 13 45
 //	 Tu récupères le args[0] --> String attention --> donne le r1
 //	 Tu récup le args[1] --> r2
+		String r1 = args.get(0);
+		String r2 = args.get(1);
+		int nbIt = 0;
 
-		System.out.println("Saisissez votre première rivière numérique");
-		Scanner in = new Scanner(System.in);
-
-		long r1 = in.nextLong();
-		System.out.println("Saisissez votre seconde rivière numérique");
-		long r2 = in.nextLong();
-		while (r1 != r2) {
-			while (r1 < r2) {
+		while (!r1.equals(r2) && nbIt < 100) {
+			while (Long.parseLong(r1) < Long.parseLong(r2)) {
 				r1 = nextValue(r1);
+				nbIt++;
 			}
-			while (r1 > r2) {
+			while (Long.parseLong(r1) > Long.parseLong(r2)) {
 				r2 = nextValue(r2);
+				nbIt++;
 			}
 		}
-		System.out.println("première intersection des rivières numériques obtenues pour ces paramètres : " + r1);
+		if (nbIt < 100) {
+			System.out.println("Première intersection des rivières numériques obtenues pour ces paramètres : " + r1);
+		} else {
+			System.out.println(
+					"Maurice, tu as dépassé les bornes des limites pour trouver l'intersection des rivières numériques ! C'est la pension !");
+		}
+
 		return true;
 	}
 
-	static long nextValue(long value) {
-		for (char c : String.valueOf(value).toCharArray()) {
-			value += c - '0';
+	private String nextValue(String value) {
+		long vInitiale = Long.parseLong(value);
+		for (int i = 0; i < value.length(); i++) {
+			vInitiale += Character.getNumericValue(value.charAt(i)); // on va ajouter Initiale à chacun de ces digits et
+																		// on va retourner vInitiale
 		}
-		return value;
+		return vInitiale + "";
 	}
 
 	@Override
