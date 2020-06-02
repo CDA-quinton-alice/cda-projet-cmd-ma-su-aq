@@ -32,8 +32,5 @@ public class Help extends Command implements INonHistory {
 		System.out.println(
 				"help [param] : Sans paramètre, donne la liste des commandes disponibles, donne la description de la commande en paramètre sinon");
 
-		System.out.println(
-				"help [param] : Sans paramètre. Donne la liste des commandes disponibles, sinon donne la description de la commande en paramètre.");
-
 	}
 }

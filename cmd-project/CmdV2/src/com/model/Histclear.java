@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import com.manager.CmdV2;
 
-public class Histclear extends Command implements INonHistory{
+public class Histclear extends Command implements INonHistory {
 
 	public Histclear() {
 		super("histclear");
@@ -13,20 +13,20 @@ public class Histclear extends Command implements INonHistory{
 
 	@Override
 	public boolean execute() {
-		((History)CmdV2.getCommandByName("history")).setHistory(new ArrayList<>());
+		((History) CmdV2.getCommandByName("history")).setHistory(new ArrayList<>());
 		return true;
 	}
 
 	@Override
 	public boolean execute(ArrayList<String> args) {
-		this.execute();
+		this.describe();
 		return true;
 	}
 
 	@Override
 	public void describe() {
 		System.out.println("histclear : Efface l'historique des commandes conservées.");
-		
+
 	}
 
 }
