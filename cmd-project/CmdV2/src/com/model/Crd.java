@@ -20,17 +20,17 @@ public class Crd extends Command {
 	public boolean execute(ArrayList<String> args) {
 
 		boolean erreurCreationRepertoire = false;
-		String vNomRepertoire = args.get(0); // --> pour récupérer le nom du répertoire en guise de paramètre (indice 0)
+		String vNomRepertoire = args.get(0); // --> pour rÃ©cupÃ©rer le nom du rÃ©pertoire en guise de paramÃ¨tre (indice 0)
 		File file = new File(System.getProperty("user.dir") + "\\" + vNomRepertoire);
 
 		if (!file.exists()) {
 			file.mkdir();
 			if (!erreurCreationRepertoire) {
-				System.out.println("Le répertoire " + vNomRepertoire + " a bien été créé. ");
+				System.out.println("Le rÃ©pertoire " + vNomRepertoire + " a bien Ã©tÃ© crÃ©Ã©. ");
 			}
 		} else {
-			System.out.println("Erreur dans la création du dossier " + vNomRepertoire
-					+ ". Ce dernier existe déjà. Veuillez spécifier un autre nom de répertoire à créer s'il vous plaît.");
+			System.out.println("Erreur dans la crÃ©ation du dossier " + vNomRepertoire
+					+ ". Ce dernier existe dÃ©jÃ . Veuillez spï¿½cifier un autre nom de rÃ©pertoire Ã  crÃ©er s'il vous plaÃ®t.");
 
 		}
 		return true;
@@ -38,7 +38,7 @@ public class Crd extends Command {
 
 	@Override
 	public void describe() {
-		System.out.println("crd [param] : Créée le dossier placé en paramètre.");
+		System.out.println("crd [param] : CrÃ©Ã©e le dossier placÃ© en paramÃ¨tre.");
 
 	}
 

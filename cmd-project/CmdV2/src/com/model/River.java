@@ -15,9 +15,7 @@ public class River extends Command {
 	}
 
 	@Override
-	public boolean execute(ArrayList<String> args) { // river 13 45
-//	 Tu récupères le args[0] --> String attention --> donne le r1
-//	 Tu récup le args[1] --> r2
+	public boolean execute(ArrayList<String> args) { // rivers qui fonctionnent 32 47
 		String r1 = args.get(0);
 		String r2 = args.get(1);
 		int nbIt = 0;
@@ -33,10 +31,10 @@ public class River extends Command {
 			}
 		}
 		if (nbIt < 100) {
-			System.out.println("Première intersection des rivières numériques obtenues pour ces paramètres : " + r1);
+			System.out.println("PremiÃ¨re intersection des riviÃ¨res numÃ©riques obtenues pour ces paramÃ¨tres : " + r1);
 		} else {
 			System.out.println(
-					"Maurice, tu as dépassé les bornes des limites pour trouver l'intersection des rivières numériques ! C'est la pension !");
+					"Maurice, tu as dÃ©passÃ© les bornes des limites pour trouver l'intersection des riviÃ¨res numÃ©riques ! C'est la pension !");
 		}
 
 		return true;
@@ -45,7 +43,7 @@ public class River extends Command {
 	private String nextValue(String value) {
 		long vInitiale = Long.parseLong(value);
 		for (int i = 0; i < value.length(); i++) {
-			vInitiale += Character.getNumericValue(value.charAt(i)); // on va ajouter Initiale à chacun de ces digits et
+			vInitiale += Character.getNumericValue(value.charAt(i)); // on va ajouter Initiale Ã  chacun de ces digits et
 																		// on va retourner vInitiale
 		}
 		return vInitiale + "";
@@ -54,7 +52,7 @@ public class River extends Command {
 	@Override
 	public void describe() {
 		System.out.println(
-				"river [param1 param2] : prend 2 paramètres en entrée puis affiche la première intersection des rivières numériques obtenues pour ces derniers.");
+				"river [param1 param2] : prend 2 paramÃ¨tres en entrÃ©e puis affiche la premiÃ¨re intersection des riviÃ¨res numÃ©riques obtenues pour ces derniers.");
 
 	}
 
