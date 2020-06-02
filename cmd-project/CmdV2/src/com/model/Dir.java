@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import com.manager.CmdV2;
 
-public class Dir extends Command implements INonHistory{
+public class Dir extends Command implements INonHistory {
 
 	public Dir() {
 		super("dir");
@@ -13,10 +13,9 @@ public class Dir extends Command implements INonHistory{
 
 	@Override
 	public boolean execute() {
-		String vPath = System.getProperty("user.home");
+		String vPath = CmdV2.getPwd();
 		File vFile = new File(vPath);
-		File vReps = vFile.getParentFile().getParentFile(); // Permet de remonter au C:\\
-		for (File vFileTmp : vReps.listFiles()) { // Parcourir tout le contenu de C, affiche fonction type
+		for (File vFileTmp : vFile.listFiles()) { // Parcourir tout le contenu de C, affiche fonction type
 			if (vFileTmp.isDirectory()) {
 				System.out.println("<DIR>  " + vFileTmp.getName());
 			} else if (vFileTmp.isFile()) {
@@ -27,22 +26,8 @@ public class Dir extends Command implements INonHistory{
 	}
 
 	@Override
-	public boolean execute(ArrayList<String> args) { // Dir avec un paramètre pour afficher le contenu du répertoire courant
-		String vParam = args.get(0);
-		if (vParam.equalsIgnoreCase("pwd")) {
-			String vPath = CmdV2.getPwd();
-			File vFile = new File(vPath);
-			for (File vFileTmp : vFile.listFiles()) {
-				if (vFileTmp.isDirectory()) {
-					System.out.println("<DIR>  " + vFileTmp.getName());
-				} else if (vFileTmp.isFile()) {
-					System.out.println("		" + vFileTmp.getName());
-				}
-			}
-		} else {
-			return this.execute();
-		}
-		return true;
+	public boolean execute(ArrayList<String> args) {
+		return this.execute();
 	}
 
 	@Override
