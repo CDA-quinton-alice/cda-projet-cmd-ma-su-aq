@@ -10,26 +10,32 @@ public class River extends Command {
 	}
 
 	@Override
-	public boolean execute(ArrayList<String> args) {
-		{
-			System.out.println("Saisissez votre première rivière numérique");
-			Scanner in = new Scanner(System.in);
-			long r1 = in.nextLong();
-			System.out.println("Saisissez votre seconde rivière numérique");
-			long r2 = in.nextLong();
-			while (r1 != r2) {
-				while (r1 < r2) {
-					r1 = nextValue(r1);
-				}
-				while (r1 > r2) {
-					r2 = nextValue(r2);
-				}
-			}
-			System.out.println("première intersection des rivières numériques obtenues pour ces paramètres : " + r1);
-		}
-
+	public boolean execute() {
+		this.describe();
 		return true;
+	}
 
+	@Override
+	public boolean execute(ArrayList<String> args) { // river 13 45
+//	 Tu récupères le args[0] --> String attention --> donne le r1
+//	 Tu récup le args[1] --> r2
+
+		System.out.println("Saisissez votre première rivière numérique");
+		Scanner in = new Scanner(System.in);
+
+		long r1 = in.nextLong();
+		System.out.println("Saisissez votre seconde rivière numérique");
+		long r2 = in.nextLong();
+		while (r1 != r2) {
+			while (r1 < r2) {
+				r1 = nextValue(r1);
+			}
+			while (r1 > r2) {
+				r2 = nextValue(r2);
+			}
+		}
+		System.out.println("première intersection des rivières numériques obtenues pour ces paramètres : " + r1);
+		return true;
 	}
 
 	static long nextValue(long value) {
@@ -44,11 +50,6 @@ public class River extends Command {
 		System.out.println(
 				"river [param1 param2] : prend 2 paramètres en entrée puis affiche la première intersection des rivières numériques obtenues pour ces derniers.");
 
-	}
-
-	@Override
-	public boolean execute() {
-		return false;
 	}
 
 }

@@ -12,37 +12,37 @@ public class Crf extends Command {
 
 	@Override
 	public boolean execute() {
-		System.out.println("Impossible de créer un fichier sans nom");
+		this.describe();
 		return true;
 	}
 
 	@Override
 	public boolean execute(ArrayList<String> args) {
 		boolean erreurCreation = false;
-		String vNomFichier = args.get(0); // Récupération du paramètre = nom du fichier
+		String vNomFichier = args.get(0); // Rï¿½cupï¿½ration du paramï¿½tre = nom du fichier
 		File vFile = new File(System.getProperty("user.dir") + "\\" + vNomFichier);
 
 		if (!vFile.exists()) {
-			// Test si il existe n'existe pas --> ok pour création
+			// Test si il existe n'existe pas --> ok pour crï¿½ation
 			try {
 				vFile.createNewFile();
 			} catch (IOException e) {
 				erreurCreation = true;
 			}
 			if (!erreurCreation) {
-				System.out.println("Le fichier " + vNomFichier + " a bien été créé.");
+				System.out.println("Le fichier " + vNomFichier + " a bien ï¿½tï¿½ crï¿½ï¿½.");
 			}
 		} else {
 			System.out.println("Attention le fichier " + vNomFichier
-					+ " existe déjà. Veuillez spécifier un autre nom de fichier à créer s'il vous plaît.");
-			// --> COPIER LE FICHER avec même code que commande COPY
+			// --> COPIER LE FICHER avec mï¿½me code que commande COPY
+					+ " existe dï¿½jï¿½. Veuillez spï¿½cifier un autre nom de fichier ï¿½ crï¿½er s'il vous plaï¿½t.");
 		}
 		return true;
 	}
 
 	@Override
 	public void describe() {
-		System.out.println("crf [param] : Créée le fichier placé en paramètre.");
+		System.out.println("crf [param] : Crï¿½ï¿½e le fichier placï¿½ en paramï¿½tre.");
 	}
 
 }

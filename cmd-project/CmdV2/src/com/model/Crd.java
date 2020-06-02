@@ -12,7 +12,7 @@ public class Crd extends Command {
 
 	@Override
 	public boolean execute() {
-		System.out.println("Impossible de créer un répertoire sans nom");
+		this.describe();
 		return false;
 	}
 

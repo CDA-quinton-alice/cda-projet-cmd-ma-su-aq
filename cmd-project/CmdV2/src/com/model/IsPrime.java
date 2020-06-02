@@ -10,7 +10,7 @@ public class IsPrime extends Command {
 
 	@Override
 	public boolean execute() {
-		// TODO Auto-generated method stub
+		this.describe();
 		return false;
 	}
 
@@ -41,7 +41,7 @@ public class IsPrime extends Command {
 
 	@Override
 	public void describe() {
-		System.out.println("isprime : Vérifie si le nombre est un nombre premier. Affiche yes si ce dernier en est un, no si il n'en n'est pas un.");
+		System.out.println("isprime : Vï¿½rifie si le nombre est un nombre premier. Affiche yes si ce dernier en est un, no si il n'en n'est pas un.");
 	}
 
 }

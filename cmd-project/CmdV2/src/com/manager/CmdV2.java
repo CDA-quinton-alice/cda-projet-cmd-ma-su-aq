@@ -1,7 +1,6 @@
 package com.manager;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
 import com.model.Command;
@@ -54,7 +53,7 @@ public class CmdV2 {
 		CmdV2.pwd = pwd;
 	}
 
-	public boolean execute(String pCommande, ArrayList<String> pListeArgs) throws IOException {
+	public boolean execute(String pCommande, ArrayList<String> pListeArgs) {
 		Command command = getCommandByName(pCommande);
 		if (command != null) {
 			((History) getCommandByName("history")).ajouterCommande(pCommande, pListeArgs);
