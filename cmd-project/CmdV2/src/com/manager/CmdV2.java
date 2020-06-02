@@ -14,19 +14,33 @@ public class CmdV2 {
 	public CmdV2() {
 		pwd = System.getProperty("user.dir");
 		vCommands = new ArrayList<>();
+
+		// repertoire courant
 		File dir = new File(pwd + "\\src\\com\\model");
+
+		// on recupere la liste des fichiers
 		String s[] = dir.list();
 		String s2[] = new String[s.length];
+
+		// formatage des fichiers pour retirer l'extension Cat.java => Cat
 		for (int z = 0; z < s.length; z++) {
 			s2[z] = s[z].substring(0, s[z].lastIndexOf("."));
 
 		}
+
 		try {
+			// parcours de chaque fichier
 			for (int i = 0; i < s2.length; i++) {
 				String classe = s2[i];
+
+				// on tente de recuperer chaque classe
 				Class<?> cls = Class.forName("com.model." + classe);
+
+				// et on teste s'il herite de Command
 				if (Command.class.isAssignableFrom(cls) && !(cls.getName().toString().equals("com.model.Command"))) {
 					try {
+						// on instancie alors la classe puis on l'ajoute dans la liste des commandes
+						// disponible
 						Command c = (Command) cls.newInstance();
 						vCommands.add(c);
 					} catch (InstantiationException | IllegalAccessException e) {
