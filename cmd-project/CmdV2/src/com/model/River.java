@@ -11,25 +11,21 @@ public class River extends Command {
 
 	@Override
 	public boolean execute(ArrayList<String> args) {
-		{
-			System.out.println("Saisissez votre première rivière numérique");
-			Scanner in = new Scanner(System.in);
-			long r1 = in.nextLong();
-			System.out.println("Saisissez votre seconde rivière numérique");
-			long r2 = in.nextLong();
-			while (r1 != r2) {
-				while (r1 < r2) {
-					r1 = nextValue(r1);
-				}
-				while (r1 > r2) {
-					r2 = nextValue(r2);
-				}
+		System.out.println("Saisissez votre première rivière numérique");
+		Scanner in = new Scanner(System.in);
+		long r1 = in.nextLong();
+		System.out.println("Saisissez votre seconde rivière numérique");
+		long r2 = in.nextLong();
+		while (r1 != r2) {
+			while (r1 < r2) {
+				r1 = nextValue(r1);
 			}
-			System.out.println("première intersection des rivières numériques obtenues pour ces paramètres : " + r1);
+			while (r1 > r2) {
+				r2 = nextValue(r2);
+			}
 		}
-
+		System.out.println("première intersection des rivières numériques obtenues pour ces paramètres : " + r1);
 		return true;
-
 	}
 
 	static long nextValue(long value) {
