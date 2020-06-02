@@ -40,14 +40,15 @@ public class Find extends Command {
 			} else if (isEnd) {
 				end = str;
 				isEnd = false;
-			} else if (str.equalsIgnoreCase("-start")) {
+			} else if (str.equalsIgnoreCase("-starts")) {
 				isStart = true;
-			} else if (str.equalsIgnoreCase("-end")) {
+			} else if (str.equalsIgnoreCase("-ends")) {
 				isEnd = true;
 			} else {
 				exact = str;
 			}
 		}
+
 		for (int i = 0; i < s.length; i++) {
 			String curr = s[i].toLowerCase();
 			if (start != null) {

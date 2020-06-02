@@ -1,7 +1,10 @@
 package com.manager;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.util.ArrayList;
+import java.util.jar.JarEntry;
+import java.util.jar.JarInputStream;
 
 import com.model.Command;
 import com.model.History;
@@ -13,9 +16,20 @@ public class CmdV2 {
 	public CmdV2() {
 		pwd = System.getProperty("user.dir");
 		vCommands = new ArrayList<>();
+		boolean isJar = false;
 
-		// repertoire courant
+		// recuperer le repertoire courant
 		File dir = new File(pwd + "\\src\\com\\model");
+		String s[];
+
+		if (!dir.exists()) {
+			ArrayList<String> tmp = getClasseNames(pwd + "\\cda-projet-cmd-ma-su-aq.jar");
+			s = new String[tmp.size()];
+			s = tmp.toArray(s);
+			isJar = true;
+		} else {
+			s = dir.list();
+		}
 
 		if (System.getProperty("cdi.default.folder") != null) {
 			File vFile = new File(System.getProperty("cdi.default.folder"));
@@ -29,15 +43,12 @@ public class CmdV2 {
 			}
 		}
 
-		// on recupere la liste des fichiers
 		// on récupere la liste des fichiers
-		String s[] = dir.list();
 		String s2[] = new String[s.length];
 
 		// formatage des fichiers pour retirer l'extension Cat.java => Cat
 		for (int z = 0; z < s.length; z++) {
 			s2[z] = s[z].substring(0, s[z].lastIndexOf("."));
-
 		}
 
 		try {
@@ -45,11 +56,14 @@ public class CmdV2 {
 			for (int i = 0; i < s2.length; i++) {
 				String classe = s2[i];
 
-				// on tente de recuperer chaque classe
 				// on tente de récuperer chaque classe
-				Class<?> cls = Class.forName("com.model." + classe);
+				Class<?> cls;
+				if (!isJar) {
+					cls = Class.forName("com.model." + classe);
+				} else {
+					cls = Class.forName(classe);
+				}
 
-				// et on teste s'il herite de Command
 				// et on teste s'il hérite de Command
 				if (Command.class.isAssignableFrom(cls) && !(cls.getName().toString().equals("com.model.Command"))) {
 					try {
@@ -120,5 +134,28 @@ public class CmdV2 {
 			}
 		}
 		return null;
+	}
+
+	public static ArrayList<String> getClasseNames(String jarName) {
+		ArrayList<String> classes = new ArrayList<>();
+
+		try {
+			JarInputStream jarFile = new JarInputStream(new FileInputStream(jarName));
+			JarEntry jarEntry;
+
+			while (true) {
+				jarEntry = jarFile.getNextJarEntry();
+				if (jarEntry == null) {
+					break;
+				}
+				if (jarEntry.getName().endsWith(".class")) {
+					classes.add(jarEntry.getName().replaceAll("/", "\\."));
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		}
+		return classes;
 	}
 }
