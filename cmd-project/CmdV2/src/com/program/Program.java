@@ -1,13 +1,12 @@
 package com.program;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.manager.CmdV2;
 
 public class Program {
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 
 		boolean continuer = true;
@@ -17,15 +16,15 @@ public class Program {
 
 		while (continuer) {
 
-			// on récupère à chaque boucle le répertoire courant
+			// on rï¿½cupï¿½re ï¿½ chaque boucle le rï¿½pertoire courant
 			System.out.println(CmdV2.getPwd());
 			System.out.print("> ");
 
-			// on demande la saisie à l'utilisateur
+			// on demande la saisie ï¿½ l'utilisateur
 			String vStr = scan.nextLine();
 
-			// découpage de la saisie de l'utilisateur
-			// Pas la meilleure solution, possible amélioration !
+			// dï¿½coupage de la saisie de l'utilisateur
+			// Pas la meilleure solution, possible amï¿½lioration !
 			// les commandes doivent fonctionner quelque soit le nombre d'espaces
 
 			String[] vCommandArgument = vStr.split("\\ ");
