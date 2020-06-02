@@ -44,12 +44,12 @@ public class Cd extends Command {
 				if (f3.isAbsolute()) {
 					CmdV2.setPwd(str);
 				} else {
-					File f4 = new File(curr + "/" + str);
+					File f4 = new File(curr + "\\" + str);
 					if (f4.exists()) {
 						if (isRoot(curr)) {
-							CmdV2.setPwd(curr.substring(0, curr.length() - 1) + "/" + str);
+							CmdV2.setPwd(curr.substring(0, curr.length() - 1) + "\\" + str);
 						} else {
-							CmdV2.setPwd(curr + "/" + str);
+							CmdV2.setPwd(curr + "\\" + str);
 						}
 					} else {
 						System.out.println("Le chemin demandé n'existe pas !");
