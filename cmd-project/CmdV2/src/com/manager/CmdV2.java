@@ -17,6 +17,18 @@ public class CmdV2 {
 		// repertoire courant
 		File dir = new File(pwd + "\\src\\com\\model");
 
+		if (System.getProperty("cdi.default.folder") != null) {
+			File vFile = new File(System.getProperty("cdi.default.folder"));
+			if (vFile.exists()) {
+				String vStock = System.getProperty("cdi.default.folder");
+				if (vStock.charAt(vStock.length() - 1) != '\\') {
+					pwd = vStock + "\\";
+				} else {
+					pwd = vStock;
+				}
+			}
+		}
+
 		// on recupere la liste des fichiers
 		String s[] = dir.list();
 		String s2[] = new String[s.length];
