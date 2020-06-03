@@ -25,11 +25,13 @@ public class Now extends Command {
 		boolean argD = false;
 		boolean error = false;
 		boolean mismatch = false;
+		String erreur = new String();
 
 		// vérification du format des arguments
 		for (String str : args) {
 			if (!str.matches("^[-][td].*")) {
 				mismatch = true;
+				erreur = str;
 			}
 			for (int i = 0; i < str.length(); i++) {
 				if (str.charAt(i) == 't') {
@@ -43,6 +45,7 @@ public class Now extends Command {
 						error = true;
 					} else {
 						mismatch = true;
+						erreur = str;
 					}
 
 				}
@@ -62,7 +65,7 @@ public class Now extends Command {
 			}
 			System.out.println(formatDate.format(date));
 		} else {
-			System.out.println("Erreur des arguments de la commande.");
+			System.out.println("Unknown option " + erreur);
 			this.describe();
 		}
 
