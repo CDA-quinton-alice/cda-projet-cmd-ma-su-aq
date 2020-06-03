@@ -20,10 +20,6 @@ public class Find extends Command {
 
 	@Override
 	public boolean execute(ArrayList<String> args) {
-		String pwd = CmdV2.getPwd();
-		File dir = new File(pwd);
-		String s[] = dir.list();
-
 		String start = null;
 		String end = null;
 		String exact = null;
@@ -49,19 +45,25 @@ public class Find extends Command {
 			}
 		}
 
-		for (int i = 0; i < s.length; i++) {
-			String curr = s[i].toLowerCase();
+		String pwd = CmdV2.getPwd();
+		File dir = new File(pwd);
+		ArrayList<String> allFiles = new ArrayList<>();
+
+		listeRepertoire(dir, allFiles);
+
+		for (String s : allFiles) {
+			String curr = s.toLowerCase();
 			if (start != null) {
 				if (curr.matches("^" + start + ".*")) {
-					answer.add(s[i]);
+					answer.add(s);
 				}
 			} else if (end != null) {
 				if (curr.matches(".*" + end + "$")) {
-					answer.add(s[i]);
+					answer.add(s);
 				}
 			} else {
 				if (curr.matches("^" + exact + "$")) {
-					answer.add(s[i]);
+					answer.add(s);
 				}
 			}
 
@@ -82,6 +84,24 @@ public class Find extends Command {
 				"find [-start] [-end] [param] : Cherche dans le répertoire courant des fichiers commençant et/ou \n"
 						+ "terminant le nom spécifié en paramètre ou cherche l'exacte terminologie sinon.");
 
+	}
+
+	public static void listeRepertoire(File path, ArrayList<String> allFiles) {
+
+		if (path.isDirectory()) {
+			File[] list = path.listFiles();
+			if (list != null) {
+				for (int i = 0; i < list.length; i++) {
+					// Appel récursif sur les sous-répertoires
+					listeRepertoire(list[i], allFiles);
+				}
+			} else {
+				System.err.println(path + " : Erreur de lecture.");
+			}
+		} else {
+			String currentFilePath = path.getAbsolutePath();
+			allFiles.add(currentFilePath);
+		}
 	}
 
 }
