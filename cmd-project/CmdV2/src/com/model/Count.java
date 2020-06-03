@@ -72,8 +72,6 @@ public class Count extends Command {
 			}
 		}
 
-		System.out.println("");
-
 		// phase de comptage
 		if (!error && !mismatch) {
 			File curr = new File(CmdV2.getPwd());
