@@ -34,6 +34,16 @@ public class Program {
 				vArg.add(vCommandArgument[i]);
 			}
 
+			// gestion du cas de cd..
+
+			if (vArg.size() == 0) {
+				String vCdTest = vCom.substring(0, 2);
+				if (vCom.length() > 2 && vCdTest.equalsIgnoreCase("cd")) {
+					vCom = "cd";
+					vArg.add("..");
+				}
+			}
+
 			if (vArg.size() == 0) {
 				continuer = vtest.execute(vCom);
 			} else {

@@ -40,10 +40,10 @@ public class Cd extends Command {
 			if (isRoot(str)) {
 				CmdV2.setPwd(str);
 			} else {
-				File f3 = new File(str);
+				File f3 = new File(curr + "\\" + str);
 				if (f3.exists()) {
 					if (f3.isAbsolute()) {
-						CmdV2.setPwd(str);
+						CmdV2.setPwd(curr + "\\" + str);
 					} else {
 						File f4 = new File(curr + "\\" + str);
 						if (f4.exists()) {
