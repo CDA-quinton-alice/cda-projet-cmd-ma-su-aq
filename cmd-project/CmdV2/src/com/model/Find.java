@@ -80,9 +80,9 @@ public class Find extends Command {
 
 	@Override
 	public void describe() {
-		System.out.println(
-				"find [-start] [-end] [param] : Cherche dans le répertoire courant des fichiers commençant et/ou \n"
-						+ "terminant le nom spécifié en paramètre ou cherche l'exacte terminologie sinon.");
+		System.out.println("find [param] : Cherche dans le répertoire courant");
+		System.out.println("\t -starts : définit le début du mot à chercher");
+		System.out.println("\t -ends : définit la fin du mot à chercher");
 
 	}
 

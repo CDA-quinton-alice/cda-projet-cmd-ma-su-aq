@@ -181,13 +181,13 @@ public class Fline extends Command {
 	@Override
 	public void describe() {
 		System.out.println("fline fichier [-option1] [-option2] : Traitement sur le fichier ligne par ligne.");
-		System.out.println("fline fichier -n : affiche le nombre de lignes");
+		System.out.println("\t -n : affiche le nombre de lignes");
 		System.out.println(
-				"fline fichier -s : permet de chercher un string dans une ligne, peut être utilisée avec les options -d et -f");
+				"\t -s : permet de chercher un string dans une ligne, peut être utilisée avec les options -d et -f");
 		System.out.println(
-				"fline fichier -d : permet de définir le numero de ligne à partir duquel le traitement va être fait (inclut).");
+				"\t -d : permet de définir le numero de ligne à partir duquel le traitement va être fait (inclut).");
 		System.out.println(
-				"fline fichier -f : permet de définir le numero de ligne jusqu'auquel le traitement va être fait (inclut).");
+				"\t -f : permet de définir le numero de ligne jusqu'auquel le traitement va être fait (inclut).");
 
 	}
 

@@ -48,8 +48,8 @@ public class Getvars extends Command {
 	@Override
 	public void describe() {
 		System.out.println("getvars : Affiche les variables d'environnement et les propriétés de la JVM.");
-		System.out.println("getvars [-env] : Affiche les variables d'environnement.");
-		System.out.println("getvars [-prop] : Affiche les propriétés de la JVM.");
+		System.out.println("\t -env : Affiche les variables d'environnement.");
+		System.out.println("\t -prop : Affiche les propriétés de la JVM.");
 	}
 
 }
