@@ -19,6 +19,7 @@ public class River extends Command {
 		String r1 = args.get(0);
 		String r2 = args.get(1);
 		if (Integer.parseInt(r1) == 0 && Integer.parseInt(r2) == 0) {
+
 			System.out.println(0);
 			return true;
 		} else if (Integer.parseInt(r1) <= 0 || Integer.parseInt(r2) <= 0) {
