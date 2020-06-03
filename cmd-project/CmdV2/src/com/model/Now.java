@@ -13,7 +13,10 @@ public class Now extends Command {
 
 	@Override
 	public boolean execute() {
-		this.describe();
+		SimpleDateFormat formatNow;
+		formatNow = new SimpleDateFormat("hh:mm:ss dd/MM/yyyy");
+		Date dateNow = new Date();
+		System.out.println(formatNow.format(dateNow));
 		return true;
 	}
 
@@ -59,9 +62,9 @@ public class Now extends Command {
 				formatDate = new SimpleDateFormat("hh:mm:ss");
 
 			} else if (argD && !argT) {
-				formatDate = new SimpleDateFormat("dd-MM-yyyy");
+				formatDate = new SimpleDateFormat("dd/MM/yyyy");
 			} else {
-				formatDate = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
+				formatDate = new SimpleDateFormat("hh:mm:ss dd/MM/yyyy");
 			}
 			System.out.println(formatDate.format(date));
 		} else {
